@@ -9,10 +9,10 @@ module.exports = (grunt, config) ->
     upload: [
       {
         src: '<%= config.dist %>/<%= config.crxname %>'
-        dest: '<%= config.crxname %>'
+        dest: '<%= config.s3path %><%= config.crxname %>'
       }
       {
         src: '<%= config.dist %>/<%= config.zipname %>'
-        dest: '<%= config.zipname %>'
+        dest: '<%= config.s3path %><%= config.zipname %>'
       }
     ]
