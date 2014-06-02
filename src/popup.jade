@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    link(href='styles/application.css', rel='stylesheet')
+    link(href='styles/popup.css', rel='stylesheet')
+    //bower:js
+    //endbower
+    script(src='scripts/qiita.js')
+    script(src='scripts/application.js')
+  body
+    .js-globalNotification.globalNotification.active
+      .globalNotificationContents_header(data-i18n-msg="notificationsLabel") Notifications
+      ul.js-globalNotification_list.globalNotificationContents_list
+      .globalNotificationContents_footer
+        a(href="http://qiita.com/notifications" data-i18n-msg="seeAllLabel") See all
+    script(src='scripts/popup.js')

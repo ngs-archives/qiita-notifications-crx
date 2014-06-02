@@ -1,0 +1,15 @@
+appName:
+  message: "Qiita お知らせ"
+  description: "The name of the application"
+
+appDescription:
+  message: "Qiita のお知らせをチェックする Chrome 機能拡張"
+  description: "The description of the application"
+
+notificationsLabel:
+  message: "お知らせ"
+  description: "Heading label for notifications"
+
+seeAllLabel:
+  message: "通知一覧を見る"
+  description: "Anchor label for see all link"
