@@ -36,7 +36,7 @@ updateBadge = ->
     popup = ''
     icon  = "-gray"
   ba.setBadgeText text: text
-  ba.setPopup { popup: popup }
+  ba.setPopup popup: popup
   ba.setIcon path:
     '19': "images/icon#{icon}-19.png"
     '38': "images/icon#{icon}-38.png"
