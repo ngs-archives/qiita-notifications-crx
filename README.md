@@ -17,4 +17,17 @@ Qiita お知らせ は、Qiita の新着情報を Chrome のツールバーア�
 
 ![](doc/screen1.png)
 
+Author
+------
+
+[Atsushi Nagase]
+
+License
+-------
+
+Copyright &copy; 2014 [Atsushi Nagase]. MIT Licensed, see [LICENSE] for details.
+
+
 [store]: https://chrome.google.com/webstore/detail/lfaggijcindkbihlopcogjlihmpdpdaa
+[Atsushi Nagase]: http://ngs.io/
+[LICENSE]: LICENSE.md
