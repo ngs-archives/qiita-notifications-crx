@@ -3,7 +3,7 @@ module.exports = (grunt, config) ->
     expand: yes
     cwd:  '<%= config.app %>'
     src:  [
-      '**/*.js'
+      'scripts/*.js'
       '!bower_components/**/*.js'
       'bower_components/jquery/dist/jquery.js'
       'bower_components/backbone/backbone.js'

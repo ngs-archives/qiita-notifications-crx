@@ -2,13 +2,13 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-    link(href='styles/application.css', rel='stylesheet')
+    link(href='vendor/application.css', rel='stylesheet')
     link(href='styles/popup.css', rel='stylesheet')
     //bower:js
     //endbower
     script(src='scripts/qiita.js')
-    script(src='scripts/application.js')
-    script(src='scripts/google-analytics-bundle.js')
+    script(src='vendor/application.js')
+    script(src='vendor/google-analytics-bundle.js')
   body
     .js-globalNotification.globalNotification.active
       .globalNotificationContents_header(data-i18n-msg="notificationsLabel") Notifications
