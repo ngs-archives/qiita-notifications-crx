@@ -1,8 +1,10 @@
 'use strict'
 
-_ajax = jQuery.ajax
-
 I18n.locale = if chrome.i18n.getUILanguage() is 'ja' then 'ja' else 'en'
+service = analytics.getService 'qiita_notifications'
+tracker = service.getTracker 'UA-200187-36'
+tracker.sendAppView 'Popup'
+_ajax = jQuery.ajax
 
 unless jQuery.ajax.__hacked
   jQuery.ajax = (options)->
@@ -18,9 +20,12 @@ nv.isFirstFetch = yes
 nv.fetchNotifications()
 
 $('body').on 'click', 'a[href]', ->
-  chrome.tabs.create url: $(@).attr 'href'
+  url = $(@).attr 'href'
+  chrome.tabs.create url: url
+  tracker.sendEvent 'Link', 'Click'
   no
 
 $("[data-i18n-msg]").each ->
   self = $ @
   self.html chrome.i18n.getMessage self.data('i18n-msg')
+

@@ -29,6 +29,7 @@ module.exports = (grunt) ->
     urls:
       js:  'https://qiita.com/assets/application-5c0286ec6333f54b79fecce9e4cbd0d2.js'
       css: 'http://qiita.com/assets/public-application-df5485504b5193351f135d181fb40378.css'
+      ga:  'https://raw.githubusercontent.com/GoogleChrome/chrome-platform-analytics/master/google-analytics-bundle.js'
 
   noext = (fn)-> fn.replace(/\.coffee$/, '')
 
