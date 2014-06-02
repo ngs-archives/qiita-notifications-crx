@@ -3,6 +3,7 @@ node_js:
 - 0.10.26
 env:
   global:
+  - CRX_PRIVATE_KEY=$TRAVIS_BUILD_DIR/qiita-notifications-chrome.pem
   - secure: JOcRp065iBv12tv6yljb0q4bKFTaNOxgKey9g2F4GXwyKVmNuFecAX2xotHsKk8cGRsr77fD56LYTomQiIjl4Ipy8itQJXlWcZirQgacxEwltXF2BBwB8IlzOHiQQ3ywx2vObnDVpNpYJ7k8xScG6DK0BVF7DU/nUPnUNM7ZOMo=
   - secure: i4wEuq/53/gia9Mjbp9K5a7NNkWel0fwsVgDMonqwcI4bFEATvoh/tNToAxBt8dRzwJxKFFVjT70tkwBqb4mXuiYEMGg0xYgA7BftH21UxKZusySNoV9fer6qxlEp0Nv0MOujuxL4g6cgwQeZ7ddoVFNFpfVQX/iTxML/AYQKvE=
   - secure: UbBjF/9OLvkYdhxTMXFcpMxIKZewcXuH7aFF9ZyPA17xwL6BK0Cg+gXq/YdqDCO8L+jG9c5aF+akoAUGx8L3hhV0+xzghK/UOXo33mmIIcyJIA7q1rX5USxvaArzgpS5h7mbnZzxqzH1yTYgqklVQr2mFBQYfo2k9tSG7oj6qk4=
@@ -45,7 +46,7 @@ env:
   - secure: kLJ0PPkq97mCaUp9LwY0Td0XkvNYquk4L1Ctqp0xxJV2D2Bc4s9Ec34A3VbXeBc/Iv0iZuFyJQ8YtrMtJvl1I0sLksKBmbVYb4wNLicGb0Lyb1/bAhWtep5g+JrsnFbJHaSSwCyTm68OHhCFUVnFBqy2HgZOwgQb2l+3upVLBhc=
 before_install:
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-  - for i in {0..36}; do eval $(printf "echo -n \$CRX_PRIVATE_KEY_%02d\n" $i); done | base64 --decode > ~/.ssh/qiita-notifications.pem
+  - for i in {0..36}; do eval $(printf "echo -n \$CRX_PRIVATE_KEY_%02d\n" $i); done | base64 --decode > $CRX_PRIVATE_KEY
 script:
   - 'npm run-script dist'
   - 'npm test'
