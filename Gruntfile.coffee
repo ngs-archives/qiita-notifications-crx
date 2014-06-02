@@ -10,7 +10,7 @@ module.exports = (grunt) ->
   require('time-grunt') grunt
 
   grunt.registerTask 'default', ['dev']
-  grunt.registerTask 'dev',     ['bower-install', 'cson', 'jade:src', 'coffee', 'compass', 'wiredep', 'copy:src']
+  grunt.registerTask 'dev',     ['bower-install', 'curl', 'cson', 'jade:src', 'coffee', 'compass', 'wiredep', 'copy:src']
   grunt.registerTask 'build',   ['dev', 'uglify', 'copy:app']
   grunt.registerTask 'dist',    ['build', 'crx', 'compress']
   grunt.loadTasks './grunt/tasks'
