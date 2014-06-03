@@ -6,7 +6,7 @@ COUNT_URL  = 'http://qiita.com/api/notifications/count'
 LOGIN_URL  = 'https://qiita.com/login'
 ALARM_NAME = 'alerm_update_count'
 
-updateCount = (alarm)->
+window.updateCount = updateCount = (alarm)->
   return if alarm?.name && alarm.name != ALARM_NAME
   xhr = new XMLHttpRequest
   xhr.open 'GET', COUNT_URL, yes
@@ -40,13 +40,8 @@ updateBadge = ->
 openLogin = ->
   chrome.tabs.create url: LOGIN_URL unless loggedIn
 
-filters =
-  urls:  ['*://qiita.com/*', '*://*.qiita.com/*']
-  types: ['main_frame']
-
-infoSpec = ['responseHeaders']
-
 chrome.browserAction.onClicked.addListener openLogin
+chrome.tabs.onActivated.addListener updateCount
 chrome.tabs.onUpdated.addListener updateCount
 chrome.alarms.onAlarm.addListener updateCount
 chrome.alarms.create ALARM_NAME, periodInMinutes: 1

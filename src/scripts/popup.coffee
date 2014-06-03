@@ -29,3 +29,8 @@ $("[data-i18n-msg]").each ->
   self = $ @
   self.html chrome.i18n.getMessage self.data('i18n-msg')
 
+setTimeout ->
+  chrome.runtime.getBackgroundPage (bg)->
+    bg?.updateCount?()
+, 1000
+
