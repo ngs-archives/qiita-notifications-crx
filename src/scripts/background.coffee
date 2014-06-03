@@ -3,8 +3,7 @@
 loggedIn = no
 count = 0
 COUNT_URL  = 'http://qiita.com/api/notifications/count'
-INTERVAL   = 18e4
-LOGIN_URL  = 'https://qiita.com/'
+LOGIN_URL  = 'https://qiita.com/login'
 ALARM_NAME = 'alerm_update_count'
 
 updateCount = (alarm)->
@@ -48,7 +47,7 @@ filters =
 infoSpec = ['responseHeaders']
 
 chrome.browserAction.onClicked.addListener openLogin
-chrome.webRequest.onCompleted.addListener updateCount, filters, infoSpec
+chrome.tabs.onUpdated.addListener updateCount
 chrome.alarms.onAlarm.addListener updateCount
 chrome.alarms.create ALARM_NAME, periodInMinutes: 1
 updateBadge()
