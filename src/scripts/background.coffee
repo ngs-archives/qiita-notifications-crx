@@ -2,14 +2,13 @@
 
 loggedIn = no
 count = 0
-COUNT_URL = 'http://qiita.com/api/notifications/count'
-INTERVAL  = 18e4
-LOGIN_URL = 'https://qiita.com/'
-timeoutId = 0
+COUNT_URL  = 'http://qiita.com/api/notifications/count'
+INTERVAL   = 18e4
+LOGIN_URL  = 'https://qiita.com/'
+ALARM_NAME = 'alerm_update_count'
 
-updateCount = ->
-  clearTimeout timeoutId if timeoutId > 0
-  updateBadge()
+updateCount = (alarm)->
+  return if alarm?.name && alarm.name != ALARM_NAME
   xhr = new XMLHttpRequest
   xhr.open 'GET', COUNT_URL, yes
   xhr.onreadystatechange = ->
@@ -18,11 +17,9 @@ updateCount = ->
         res = JSON.parse xhr.responseText
         count = res.count
         loggedIn = yes
-        timeoutId = setTimeout updateCount, INTERVAL
       catch e
         loggedIn = no
         count = 0
-        timeoutId = 0
       updateBadge()
   xhr.send()
 
@@ -46,10 +43,13 @@ openLogin = ->
 
 filters =
   urls:  ['*://qiita.com/*', '*://*.qiita.com/*']
-  types: 'main_frame xmlhttprequest'.split(' ')
+  types: ['main_frame']
 
 infoSpec = ['responseHeaders']
 
 chrome.browserAction.onClicked.addListener openLogin
 chrome.webRequest.onCompleted.addListener updateCount, filters, infoSpec
+chrome.alarms.onAlarm.addListener updateCount
+chrome.alarms.create ALARM_NAME, periodInMinutes: 1
+updateBadge()
 updateCount()

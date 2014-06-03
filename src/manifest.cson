@@ -24,6 +24,7 @@ permissions: [
   "storage"
   "webRequest"
   "tabs"
+  "alarms"
   "https://www.google-analytics.com/"
   "http://qiita.com/api/notifications"
   "http://qiita.com/api/notifications/count"
