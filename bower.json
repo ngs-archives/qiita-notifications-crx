@@ -1,6 +1,6 @@
 {
   "name": "qiita-notifications-crx",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "dependencies": {
     "jquery": "~1.11.0",
     "underscore": "~1.6.0",
