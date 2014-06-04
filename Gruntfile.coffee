@@ -28,7 +28,7 @@ module.exports = (grunt) ->
     s3path:   ''
     manifest: CSON.parse grunt.file.read 'src/manifest.cson'
     urls:
-      js:  'https://qiita.com/assets/application-5c0286ec6333f54b79fecce9e4cbd0d2.js'
+      js:  'http://qiita.com/assets/application-c7475b629f2e90a941030c606509ecda.js'
       css: 'http://qiita.com/assets/public-application-df5485504b5193351f135d181fb40378.css'
       ga:  'https://raw.githubusercontent.com/GoogleChrome/chrome-platform-analytics/master/google-analytics-bundle.js'
 
